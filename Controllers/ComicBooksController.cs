@@ -16,8 +16,6 @@ namespace ComicBookGallery.Controllers
         public ActionResult Detail()
         {
             return View();
-            //hahahaha
-
         }
 
         public ComicBooksController(ILogger<ComicBooksController> logger)
