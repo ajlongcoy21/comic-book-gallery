@@ -9,11 +9,11 @@ using ComicBookGallery.Models;
 
 namespace ComicBookGallery.Controllers
 {
-    public class HomeController : Controller
+    public class ComicBooksController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<ComicBooksController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public ComicBooksController(ILogger<ComicBooksController> logger)
         {
             _logger = logger;
         }
