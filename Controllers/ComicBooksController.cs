@@ -13,6 +13,11 @@ namespace ComicBookGallery.Controllers
     {
         private readonly ILogger<ComicBooksController> _logger;
 
+        public string Detail()
+        {
+            return "Hello from the comic books controller";
+        }
+
         public ComicBooksController(ILogger<ComicBooksController> logger)
         {
             _logger = logger;
