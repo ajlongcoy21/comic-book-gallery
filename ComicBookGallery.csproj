@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Views\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
