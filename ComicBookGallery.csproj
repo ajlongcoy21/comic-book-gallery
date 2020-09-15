@@ -4,4 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <Content Remove="Views\Shared\Error.cshtml" />
+  </ItemGroup>
 </Project>
