@@ -6,39 +6,36 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ComicBookGallery.Models;
+using ComicBookGallery.Data;
+
 
 namespace ComicBookGallery.Controllers
 {
     public class ComicBooksController : Controller
     {
         private readonly ILogger<ComicBooksController> _logger;
+        private ComicBookRepository _comicBookRepository = null;
 
-        public ActionResult Detail()
+        public ComicBooksController()
         {
-            var comicBook = new ComicBook()
-            {
-                SeriesTitle = "The Amazing Spider-Man",
-                IssueNumber = 700,
-                DescriptionHtml = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>",
-                Artists = new Artist[]
-                {
-                    new Artist() {Name = "Dan Slott", Role = "Script" },
-                    new Artist() {Name = "Humberto Ramos", Role = "Pencils" },
-                    new Artist() {Name = "Victor Olazaba", Role = "Inks" },
-                    new Artist() {Name = "Edgar Delgado", Role = "Colors" },
-                    new Artist() {Name = "Chris Eliopoulos", Role = "Letters" }
-                }
+            _comicBookRepository = new ComicBookRepository();
+        }
 
-                
-            };
+        public ActionResult Detail(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var comicBook = _comicBookRepository.GetComicBook((int)id);
 
             return View(comicBook);
         }
 
-        public ComicBooksController(ILogger<ComicBooksController> logger)
-        {
-            _logger = logger;
-        }
+        //public ComicBooksController(ILogger<ComicBooksController> logger)
+        //{
+        //    _logger = logger;
+        //}
 
         public IActionResult Index()
         {
